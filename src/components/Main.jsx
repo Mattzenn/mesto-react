@@ -5,8 +5,8 @@ import Card from './Card'
 function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
 
     const [userName, setUserName] = React.useState('test')
-    const [userDescription, setUserDescription] = React.useState()
-    const [userAvatar, setUserAvatar] = React.useState()
+    const [userDescription, setUserDescription] = React.useState('')
+    const [userAvatar, setUserAvatar] = React.useState('')
     const [cards, setCards] = React.useState([])
 
     React.useEffect(() => {
@@ -20,6 +20,7 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
 
     React.useEffect(() => {
         api.getCards().then((data) => {
+            console.log(data)
             setCards(data)
         })
             .catch((err) => console.log(err))
@@ -43,7 +44,7 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
             </section>
             <section className="cards">
                 <ul className="elements">
-                    {cards.map(({ id, ...props }) => <Card key={id} {...props} card={{ id, ...props }} onCardClick={onCardClick} />)}
+                    {cards.map((card) => <Card key={card._id} card={card} onCardClick={onCardClick} />)}
                 </ul>
             </section>
         </main>
