@@ -1,50 +1,31 @@
 import React from 'react'
-import { api } from '../utils/Api'
+
 import Card from './Card'
+import { CurrentUserContext } from '../contexts/CurrentUserContext'
 
-function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
+function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick, handleCardLike, handleCardDelete, cards }) {
 
-    const [userName, setUserName] = React.useState('test')
-    const [userDescription, setUserDescription] = React.useState('')
-    const [userAvatar, setUserAvatar] = React.useState('')
-    const [cards, setCards] = React.useState([])
-
-    React.useEffect(() => {
-        api.getApiUserInfo().then((data) => {
-            setUserName(data.name)
-            setUserDescription(data.about)
-            setUserAvatar(data.avatar)
-        })
-            .catch((err) => console.log(err))
-    }, [])
-
-    React.useEffect(() => {
-        api.getCards().then((data) => {
-            console.log(data)
-            setCards(data)
-        })
-            .catch((err) => console.log(err))
-    }, [])
+    const currentUser = React.useContext(CurrentUserContext)
 
     return (
         <main className="content">
             <section className="profile">
                 <div className="profile__avatar-wrapper">
-                    <img className="profile__avatar" src={userAvatar} alt="Аватар"></img>
+                    <img className="profile__avatar" src={currentUser.avatar} alt="Аватар"></img>
                     <button type="button" className="profile__avatar-button" onClick={onEditAvatar}></button>
                 </div>
                 <div className="profile__info">
                     <div className="profile__container">
-                        <h1 className="profile__name">{userName}</h1>
+                        <h1 className="profile__name">{currentUser.name}</h1>
                         <button type="button" className="profile__edit-button" onClick={onEditProfile}></button>
                     </div>
-                    <h2 className="profile__about">{userDescription}</h2>
+                    <h2 className="profile__about">{currentUser.about}</h2>
                 </div>
                 <button type="button" className="profile__add-button" onClick={onAddPlace}></button>
             </section>
             <section className="cards">
                 <ul className="elements">
-                    {cards.map((card) => <Card key={card._id} card={card} onCardClick={onCardClick} />)}
+                    {cards.map((card) => <Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={handleCardLike} onCardDelete={handleCardDelete} />)}
                 </ul>
             </section>
         </main>
