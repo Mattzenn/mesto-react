@@ -1,7 +1,7 @@
 import React from 'react'
 import PopupWithForm from './PopupWithForm'
 
-function AddPlacePopup(props) {
+function AddPlacePopup({ onAddPlace, isOpen, onClose }) {
     const [name, setName] = React.useState('')
     const [link, setLink] = React.useState('')
 
@@ -15,17 +15,17 @@ function AddPlacePopup(props) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        props.onAddPlace({
+        onAddPlace({
             name: name,
             link: link,
         })
     }
 
     return (
-        <PopupWithForm name='card-add' title='Новое место' isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
-            <input id="placeName" required name="name" className="popup__input popup__input_place_name" type="text" placeholder="Название" minLength="2" maxLength="30" required onChange={handleNameChange}></input>
+        <PopupWithForm name='card-add' title='Новое место' isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
+            <input id="placeName" name="name" className="popup__input popup__input_place_name" type="text" placeholder="Название" minLength="2" maxLength="30" value={name} required onChange={handleNameChange}></input>
             <span id="placeName-error" className="popup__input-error"></span>
-            <input id="link" required name="link" className="popup__input popup__input_place_description" type="url" placeholder="Ссылка на картинку" minLength="2" maxLength="100000" required onChange={handleLinkChange}></input>
+            <input id="link" name="link" className="popup__input popup__input_place_description" type="url" placeholder="Ссылка на картинку" minLength="2" maxLength="100000" value={link} required onChange={handleLinkChange}></input>
             <span id="link-error" className="popup__input-error"></span>
         </PopupWithForm>
     )
