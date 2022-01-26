@@ -38,4 +38,43 @@
 * Functional Components
 * Client-side form validation (custom hook)
 
+## Языки:
+
+* JavaScript
+
+## Библиотеки:
+
+* Reactjs
+
+## Инструкция по установке:
+
+Клонировать репозиторий:
+`
+git clone https://github.com/Mattzenn/mesto-react.git
+`
+В директории проекта запустить приложение в режиме разработки:
+
+```
+npm install
+npm start
+
+## Макеты проектной работы в Figma:
+
+* [Макет 4](https://www.figma.com/file/SLGf16iUspCIjC05qUi1dk/YP-project-4-mesto)
+* [Макет 5](https://www.figma.com/file/n0Ho0JWLOCYiVkrboLTVJo/sprint-5-mesto)
+* [Макет 6-7](https://www.figma.com/file/qk3Axq4MZryPzGFfCnUnrP/sprint-6-mesto)
+* [Макет 9](https://www.figma.com/file/hhhIavVTeuilfPPZ6sbifl/JavaScript.-Sprint-9)
+
+## Чеклисты проектной работы:
+
+* [Чеклист 4](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-4/index.html)
+* [Чеклист 5](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-5/index.html)
+* [Чеклист 6](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-6/index.html)
+* [Чеклист 7](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-7/index.html)
+* [Чеклист 8](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-8/index.html)
+* [Чеклист 9](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-9/index.html)
+* [Чеклист 10](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-10/index.html)
+* [Чеклист 11](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-11/index.html)
+
+
 
