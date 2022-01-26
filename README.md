@@ -57,6 +57,7 @@ git clone https://github.com/Mattzenn/mesto-react.git
 ```
 npm install
 npm start
+```
 
 ## Макеты проектной работы в Figma:
 
